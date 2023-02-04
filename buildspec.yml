@@ -9,6 +9,7 @@ phases:
       # Snyk auth
       # - ./snyk config set api="$SNYK_AUTH_TOKEN"
       # Build Docker image for testing
+      #TODO check problems
       - sudo update-alternatives --set iptables /usr/sbin/iptables-legacy
       - sudo update-alternatives --set ip6tables /usr/sbin/ip6tables-legacy
       - sudo dockerd
@@ -24,7 +25,7 @@ phases:
       - echo Run nodejs tests...
       - docker run -e CI=true 216880/nodejs-test
       # Scan Docker image with Snyk
-      ## Client
+      ## Client 
       ## Run test for security vulernabilities
       # - ./snyk test --severity-threshold=medium --docker 216880/react-test:latest --file=./client/Dockerfile.dev
       ## Setup continuous monitoring
