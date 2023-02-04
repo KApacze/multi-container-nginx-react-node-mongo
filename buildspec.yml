@@ -16,6 +16,7 @@ phases:
       #- service docker.io start 
       #- service docker.io on ##
       - echo Build client and backend docker images for testing...
+      - sudo service docker status
       - docker build -t 216880/react-test -f ./client/Dockerfile.dev ./client
       - docker build -t 216880/nodejs-test -f ./backend/Dockerfile.dev ./backend
   build:
