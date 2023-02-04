@@ -10,7 +10,6 @@ phases:
       # - ./snyk config set api="$SNYK_AUTH_TOKEN"
       # Build Docker image for testing
       - sudo dockerd
-
       - echo Build client and backend docker images for testing...
       - docker build -t 216880/react-test -f ./client/Dockerfile.dev ./client
       - docker build -t 216880/nodejs-test -f ./backend/Dockerfile.dev ./backend
