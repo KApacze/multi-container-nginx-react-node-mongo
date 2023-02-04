@@ -36,15 +36,15 @@ phases:
       # - ./snyk monitor --docker aws_project/nodejs-test:latest --file=./backend/Dockerfile.dev
       # Build the Docker images
       - echo Building the production Docker image...
-      - docker build -t aws_project/PSOiR-app-client ./client
-      - docker build -t aws_project/PSOiR-app-backend ./backend
-      - docker build -t aws_project/PSOiR-app-nginx ./nginx
+      - docker build -t psoir_app/psoir-app-client ./client
+      - docker build -t psoir_app/psoir-app-backend ./backend
+      - docker build -t psoir_app/psoir-app-nginx ./nginx
       # Log in to the Docker CLI
       - echo "$DOCKER_PW" | docker login -u "$DOCKER_ID" --password-stdin
   post_build:
     commands:
       # Take these images and push them to Docker hub
       - echo Pushing the Docker images...
-      - docker push aws_project/PSOiR-app-client
-      - docker push aws_project/PSOiR-app-backend
-      - docker push aws_project/PSOiR-app-nginx
+      - docker push psoir_app/psoir-app-client
+      - docker push psoir_app/psoir-app-backend
+      - docker push psoir_app/psoir-app-nginx

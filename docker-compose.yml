@@ -1,6 +1,7 @@
 version: "3.3"
 services:
   nginx:
+    image: psoir_app/psoir-app-nginx
     depends_on:
       - client
       - backend
@@ -11,6 +12,7 @@ services:
     ports:
       - '80:80'
   client:
+    image: psoir_app/psoir-app-client
     build:
       context: ./client
       dockerfile: Dockerfile
@@ -21,6 +23,7 @@ services:
     restart: on-failure
     container_name: client
   backend:
+    image: psoir_app/psoir-app-backend
     build:
       context: ./backend
       dockerfile: Dockerfile
