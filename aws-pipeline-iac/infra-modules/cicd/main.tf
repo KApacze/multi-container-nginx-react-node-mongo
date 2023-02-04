@@ -48,7 +48,7 @@ module "codepipeline_for_multicontainer_app" {
   source = "./codepipeline"
   name = "codepipeline-multicontainer-docker-app"
   bucket_name = "codepipeline-multicontainer-docker-app-artifact"
-  github_org = "LukeMwila"
+  github_org = "KApacze"
   repository_name = "multi-container-nginx-react-node-mongo"
   branch_name = var.branch_name
   environment     = var.environment

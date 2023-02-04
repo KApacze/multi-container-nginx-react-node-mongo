@@ -9,8 +9,6 @@
     "test": "export NODE_ENV=test && mocha 'src/test/**/*.js'"
   },
   "keywords": [],
-  "author": "Luke Mwila",
-  "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",

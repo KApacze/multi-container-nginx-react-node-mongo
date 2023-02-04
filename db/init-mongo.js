@@ -1,11 +1,11 @@
 db.createUser(
   {
-    user: "lukemwila",
-    pwd: "doesitreallymatterwhatthisis",
+    user: "admin",
+    pwd: "admin",
     roles: [
       {
         role: "readWrite",
-        db: "multicontainer-database"
+        db: "aws-project-database"
       }
     ]
   }
