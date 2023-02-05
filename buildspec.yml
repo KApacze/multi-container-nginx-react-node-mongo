@@ -13,7 +13,7 @@ phases:
       - curl -Lo ./snyk "https://github.com/snyk/snyk/releases/download/v1.210.0/snyk-linux"
       - chmod -R +x ./snyk
       # Snyk auth
-      # - ./snyk config set api="$SNYK_AUTH_TOKEN"
+      # - ./snyk config set api="$SNYK_AUTH_TOKEN"#
       # Build Docker image for testing
       - echo Build client and backend docker images for testing...
       - docker build -t 216880/react-test -f ./client/Dockerfile.dev ./client
