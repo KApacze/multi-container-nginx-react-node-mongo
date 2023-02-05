@@ -19,7 +19,7 @@ phases:
       # - sudo update-alternatives --set ip6tables /usr/sbin/ip6tables-legacy
       # - sudo dockerd##
       #- service docker.io start #
-      #- service docker.io on ####
+      #- service docker.io on ###
       - echo Build client and backend docker images for testing...
       - service docker status
       - docker build -t 216880/react-test -f ./client/Dockerfile.dev ./client
