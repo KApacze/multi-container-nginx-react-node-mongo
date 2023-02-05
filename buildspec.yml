@@ -51,3 +51,6 @@ phases:
       - docker push 216880/psoir-app-client
       - docker push 216880/psoir-app-backend
       - docker push 216880/psoir-app-nginx
+artifacts:
+  files:
+    - '**/*'
