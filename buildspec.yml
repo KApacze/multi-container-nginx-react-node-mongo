@@ -4,6 +4,7 @@ phases:
     commands:
       - nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://127.0.0.1:2375 --storage-driver=overlay2 &
       - timeout 15 sh -c "until docker info; do echo .; sleep 1; done"
+      
   pre_build:
     commands:
       # Install Snyk
@@ -18,7 +19,7 @@ phases:
       # - sudo update-alternatives --set ip6tables /usr/sbin/ip6tables-legacy
       # - sudo dockerd##
       #- service docker.io start #
-      #- service docker.io on ###
+      #- service docker.io on ####
       - echo Build client and backend docker images for testing...
       - service docker status
       - docker build -t 216880/react-test -f ./client/Dockerfile.dev ./client
