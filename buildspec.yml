@@ -27,7 +27,7 @@ phases:
       - echo Run nodejs tests...
       - docker run -e CI=true 216880/nodejs-test
       # Scan Docker image with Snyk
-      ## Client ##
+      ## Client ###
       ## Run test for security vulernabilities
       # - ./snyk test --severity-threshold=medium --docker 216880/react-test:latest --file=./client/Dockerfile.dev
       ## Setup continuous monitoring
