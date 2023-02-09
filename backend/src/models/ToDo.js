@@ -9,6 +9,7 @@ const ToDoSchema = new Schema({
     type: Boolean,
     default: false
   }
+
 });
 
 const ToDo = model('toDo', ToDoSchema);
