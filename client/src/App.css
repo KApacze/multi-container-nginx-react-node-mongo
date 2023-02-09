@@ -36,3 +36,37 @@
     transform: rotate(360deg);
   }
 }
+
+.App p {
+  text-align: center;
+}
+
+.input-form {
+  display: flex;
+  justify-content: center;
+}
+
+input[type="text"] {
+  font-size: 1em;
+  margin-right: 10px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid #999;
+  margin-bottom: 10px;
+}
+
+.content-container {
+  margin: 0 15px;
+  max-height: 400px;
+  overflow: auto;
+}
+
+.contents {
+  display: flex;
+  padding: 0 15px;
+  justify-content: space-between;
+}
+
+h2 {
+  text-align: center;
+}
