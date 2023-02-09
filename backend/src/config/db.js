@@ -3,11 +3,14 @@ const mongoose = require('mongoose');
 const db = process.env.TO_DO_DB;
 
 const connectDB = async () => {
+  console.log(`checkDb ${db}`)
   let attempts = 10;
   while (attempts) {
     try {
-      await mongoose.connect(db);
+      //TODO delete this string
+      await mongoose.connect("mongodb+srv://admin:admin@cluster0.bogyx.mongodb.net/?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true });
       console.log('MongoDB connected...');
+
       // break out of loop once conncected
       break;
     } catch (err) {
