@@ -43,7 +43,7 @@ class TodoItem extends Component {
       <ItemWrapper>
           <StyledCheckbox type="checkbox" />
           <StyledText>{text}</StyledText>
-          <StyledButton /*onClick={() => this.props.delete_action(id)}*/>Delete</StyledButton>
+          <StyledButton onClick={() => this.props.handler(text)}>Delete</StyledButton>
       </ItemWrapper>
     )
   }

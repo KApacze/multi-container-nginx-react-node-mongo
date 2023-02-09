@@ -17,9 +17,10 @@ const StyledButton = styled.button`
 class App extends React.Component{
   constructor(props){
     super(props);
-    this.state ={tasks: [ {item_name: "wake up", _id: 0, completed: false},  {item_name: "brush_teeth", _id: 1, completed: false}],
+    this.state ={tasks: [],
     inputValue: ''
   }
+  this.handler = this.handler.bind(this)
   }
   
 
@@ -34,51 +35,17 @@ class App extends React.Component{
           tasks: prevState.tasks.concat(items) 
         };
       });
-      // addTask(items);
     }
     })
   };
 
+  handler(item_name) {
+    console.log(`fire ${item_name}`)
+    this.setState({tasks: this.state.tasks.filter(function(task) { 
+      return task.item_name !== item_name 
+  })});
+  }
 
-
-  removeTask(id){
-    const tasks = this.state.tasks.filter(element => (element.id !== id));
-    this.setState({ tasks: tasks });
-  };
-  // React.useEffect(() => {
-  //   const getToDoItems = async () => {
-  //     // const response = await fetch(
-  //     //   `/backend/v1/to-do`
-  //     // );
-  
-  //     // const items = await response.json();
-  //     // if (items && Array.isArray(items) && items.length) {
-    //     //   updateToDoItems(items);
-    //     // }
-    //   };
-    //   getToDoItems();
-    // }, []);
-
-
-//   async start = () => {
-//     console.log(`async func start post`);
-//     const response = await axios.post('/backend/v1/to-do', {
-//       item_name: 'Sleep',
-//       complete: false
-//     });
-//     console.log(response.data);
-//  };
-//  start();
-
-//  constructor(props){
-//   super(props);
-//   this.state ={tasks: []}
-
-//   this.addTask = this.addTask.bind(this);
-//   this.removeTask = this.removeTask.bind(this);
-// }
-
-// }
 
 updateInputValue(evt) {
   const val = evt.target.value;
@@ -94,17 +61,32 @@ render(){
 
     <div className="App">
       <h2>TODO App</h2>
-      <div class="input-form">
+      <div className="input-form">
       <span>
           <input type='text'  value={this.state.inputValue} onChange={evt => this.updateInputValue(evt)} />
-          <StyledButton /*onClick={handleAddTodo}*/>Add Todo</StyledButton>
+          <StyledButton onClick={() => {
+              const data = {
+                item_name: this.state.inputValue,
+                isComplete: false
+              }
+            
+              this.setState((prevState) => {
+                return { 
+                  tasks: prevState.tasks.concat(data) 
+                };
+              });
+            
+              this.setState({
+                inputValue: ''
+              });
+          }}>Add Todo</StyledButton>
         </span>
       </div>
     <div className="content-container">
       {this.state.tasks && this.state.tasks.length
         ? this.state.tasks.map((item, i) => {
             return (
-              <TodoItem className="TODO-element" key={i} text={`${item.item_name}`} id={`${item._id}`}>
+              <TodoItem className="TODO-element" key={i} text={`${item.item_name}`} id={`${item._id}`} handler = {this.handler} >
                 {`${item.item_name}`}
                 <br />
               </TodoItem>
