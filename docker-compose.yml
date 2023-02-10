@@ -5,7 +5,7 @@ services:
     depends_on:
       - client
       - backend
-    restart: always # because it is routing traffic to our entire app
+    restart: always 
     build:
       dockerfile: Dockerfile
       context: ./nginx
@@ -19,7 +19,7 @@ services:
     #ports:
     #  - '3000:3000'
     volumes:
-      - /app/node_modules # Inside the container, don't try to override this folder, just leave as is
+      - /app/node_modules 
     restart: on-failure
     container_name: client
   backend:
@@ -32,7 +32,7 @@ services:
     restart: on-failure
     container_name: backend
     volumes:
-      - /app/node_modules # Inside the container, don't try to override this folder, just leave as is
+      - /app/node_modules 
     env_file:
       - ./env/backend.env
   mongo:
